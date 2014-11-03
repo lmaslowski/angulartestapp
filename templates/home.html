@@ -1,0 +1,25 @@
+
+<h1>{{title}}</h1>
+<ul>
+	<li ng-repeat="friend in friends">
+		<input type="text" ng-model="friend.name" />
+		<input type="text" ng-model="friend.age" />
+		<button ng-click="delete($index)" class="btn btn-danger">-</button>
+	</li>
+</ul>
+
+<button ng-click="add()" class="btn btn-warning">add</button>
+<button ng-click="save()" class="btn btn-warning">save</button>
+
+
+<input type="text" ng-model="title" />
+
+<select ng-model="selectedValueItem" ng-options="value for value in items"></select>
+<select  ng-model="selectedValueFriend" ng-options="friend.age for friend in friends"></select>
+
+
+
+<pre ng-bind="friends|json" />
+
+
+

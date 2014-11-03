@@ -1,0 +1,32 @@
+Contact template
+
+<form name="contactfrm">
+	<label>email</label>
+	<input type="email" name="email" ng-model="contact.email" required />
+	<span ng-show="contactfrm.email.$dirty && contactfrm.email.$error.required">Required</span>
+	<span ng-show="contactfrm.email.$dirty && contactfrm.email.$error.email">Not email</span>
+	<br />
+
+	<label>name</label>
+	<input 
+		type="text" 
+		name="name" 
+		ng-model="contact.name"  
+		required
+		ng-minlength="5"
+		ng-maxlength="10"
+	/>
+	<span ng-show="contactfrm.email.$dirty && contactfrm.name.$error.required">Required</span>
+	<span ng-show="contactfrm.email.$dirty  && contactfrm.name.$error.minlength">too short</span>
+	<span ng-show="contactfrm.email.$dirty && contactfrm.name.$error.maxlength">too long</span>
+	<br />	
+	<button class="btn btn-primary" ng-disabled="contactfrm.$invalid">Log on</button>
+</form>
+
+<pre ng-bind="contactfrm|json" />
+
+
+
+<style type="text/css">
+	input.ng-invalid.ng-dirty{border: 1px solid red;}
+</style>
